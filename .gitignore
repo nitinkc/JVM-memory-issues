@@ -36,5 +36,6 @@ out/
 ### VS Code ###
 .vscode/
 
-# Ignoring heapdum
+# Ignoring heapdump
 heapdump/
+*.index

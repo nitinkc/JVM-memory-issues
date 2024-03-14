@@ -3,6 +3,9 @@ package com.memory.service;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,5 +31,16 @@ public class MemoryIssuesService {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public void processFile(String filePath) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(filePath));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            // Process each line
+        }
+        // Reader is not closed, leading to a resource leak
+        // Add this line to close the reader
+        // reader.close();
     }
 }
