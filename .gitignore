@@ -39,3 +39,4 @@ out/
 # Ignoring heapdump
 heapdump/
 *.index
+.DS_Store
