@@ -1,6 +1,7 @@
 package com.memory.service;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -8,14 +9,22 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.atomic.AtomicBoolean;
+
+import static java.lang.System.exit;
 
 @Service
 @Slf4j
 public class MemoryIssuesService {
 
     private List<byte[]> memoryLeakingList = new ArrayList<>();
+    private AtomicBoolean oomReached = new AtomicBoolean(false);
+    private CompletableFuture<?> memoryLeakTask;
 
-    public void simulateOOM() {
+
+    public void simulateMemoryLeak() {
         try {
             // Allocate memory until an OutOfMemoryError occurs
             while (true) {
@@ -27,6 +36,7 @@ public class MemoryIssuesService {
             }
         } catch (OutOfMemoryError e) {
             log.error("OutOfMemoryError occurred. Generating heap dump...");
+            exit(1);
             // No need to handle the exception, just proceed to generate the heap dump
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -43,4 +53,11 @@ public class MemoryIssuesService {
         // Add this line to close the reader
         // reader.close();
     }
+
+    // Method scheduled to run periodically
+    //@Scheduled(fixedDelay = 1000)
+    public void runMemoryLeakTask() {
+        CompletableFuture.runAsync(this::simulateMemoryLeak);
+    }
+
 }

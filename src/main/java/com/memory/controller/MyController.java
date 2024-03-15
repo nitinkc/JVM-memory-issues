@@ -20,7 +20,7 @@ public class MyController {
     @GetMapping("/induceOOM")
     public void getRefDataByIds(Map<String, List<Integer>> refIds) {
 
-        memoryIssuesService.simulateOOM();
+        memoryIssuesService.simulateMemoryLeak();
     }
 
     @PostMapping("/process")
