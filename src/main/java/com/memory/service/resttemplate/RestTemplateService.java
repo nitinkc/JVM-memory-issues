@@ -1,5 +1,6 @@
 package com.memory.service.resttemplate;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -19,8 +20,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 @Service
+@Slf4j
 public class RestTemplateService {
-
 
 	public void loadRestClientCalls(Integer noOfCalls, String url, String imagePath) {
 		int i = 0;
@@ -34,7 +35,7 @@ public class RestTemplateService {
 
 	public void loadRestClientCallsWithThreads(Integer noOfCalls,String url,  String imagePath) {
 		Instant start = Instant.now();
-        System.out.println(" Time: " + LocalTime.now());
+        log.info(" Time: " + LocalTime.now());
         ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
         try {
             for (int i = 0; i < noOfCalls; i++) {
@@ -51,7 +52,7 @@ public class RestTemplateService {
         }
         Instant end = Instant.now();
         Duration duration = Duration.between(start, end);
-        System.out.println("Time taken: " + duration.toMillis() + " milliseconds");
+        log.info("Time taken: " + duration.toMillis() + " milliseconds");
     }
 
 	
@@ -75,13 +76,13 @@ public class RestTemplateService {
         // Create the HTTP entity with headers and the multipart body
         HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers);
 
-        System.out.println("Starting to post an image for Id"+id);
+        log.info("Starting to post an image for Id"+id);
         
         // Perform the POST request
         ResponseEntity<String> responseEntity = restTemplate.postForEntity(url, requestEntity, String.class);
 
         // Print the response status code and body
-        System.out.println("Response Id "+id +":"+ responseEntity.getBody());
-        System.out.println(" Time: " + LocalTime.now());
+        log.info("Response Id "+id +":"+ responseEntity.getBody());
+        log.info(" Time: " + LocalTime.now());
 	}
 }

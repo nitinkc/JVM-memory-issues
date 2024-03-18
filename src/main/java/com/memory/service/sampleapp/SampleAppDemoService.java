@@ -32,7 +32,7 @@ public class SampleAppDemoService {
 			consumer.start();
 		} catch (Throwable t) {
 			
-			System.out.println("SampleAppDemo Failed!!");
+			log.info("SampleAppDemo Failed!!");
 			t.printStackTrace();
 		}		
 	}

@@ -13,12 +13,12 @@ public class FileConnectionLeakService {
 	private static final String SAMPLE_FILE_NAME = "buggyapp-samplefile.txt";
 
 	/**
-	 * Connects to a sample file and does it close it.
+	 * Connects to a sample file and does not close it.
 	 */
 	public void connect() {
 		BufferedReader reader = null;
 		try {
-			System.out.println("Leaking File connections new");
+			log.info("Leaking File connections new");
 			reader = new BufferedReader(new FileReader(SAMPLE_FILE_NAME));
 			String line;
 			while ((line = reader.readLine()) != null) {
@@ -32,7 +32,6 @@ public class FileConnectionLeakService {
 			
 			e.printStackTrace();
 		}
-
 	}
 
 	/**
@@ -51,7 +50,7 @@ public class FileConnectionLeakService {
 
 			bufferedWriter.close();
 
-			System.out.println("Sample file created ");
+			log.info("Sample file created ");
 		} catch (IOException e) { 
 			e.printStackTrace();
 		}
@@ -67,7 +66,5 @@ public class FileConnectionLeakService {
 		while(true) {
 			connect();
 		}
-
 	}
-
 }

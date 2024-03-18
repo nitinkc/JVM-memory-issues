@@ -18,7 +18,7 @@ public class WebClientService {
 
 	public void loadWebClientCalls(Integer noOfCalls, String url, String imagePath) {
 		int i = 0;
-        System.out.println(" Time: " + LocalTime.now());
+        log.info(" Time: " + LocalTime.now());
 		Instant start = Instant.now();
 		while (i < noOfCalls) {
 			webHeavyClientCall(i, url, imagePath);
@@ -26,7 +26,7 @@ public class WebClientService {
 		}
 		Instant end = Instant.now();
 		Duration duration = Duration.between(start, end);
-		System.out.println("Time taken: " + duration.toMillis() + " milliseconds");
+		log.info("Time taken: " + duration.toMillis() + " milliseconds");
 
 	}
 
@@ -35,15 +35,15 @@ public class WebClientService {
 
 		webClient.get().retrieve().bodyToMono(String.class).subscribe(result -> {
 			// Handle the response
-			System.out.println("Response: " + result);
+			log.info("Response: " + result);
 		}, error -> {
 			// Handle errors
 			System.err.println("Error: " + error.getMessage());
 		}, () -> {
 			// This block is called when the response is successfully processed
-			System.out.println("Request completed " + id);
+			log.info("Request completed " + id);
 		});
-		System.out.println("waiting...");
+		log.info("waiting...");
 
 	}
 
@@ -58,12 +58,12 @@ public class WebClientService {
 		// Perform the POST request with the image as a part of the request body
 		MultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
 		body.add("file", new FileSystemResource(imageFile));
-		System.out.println("Starting to post an image for Id" + id);
+		log.info("Starting to post an image for Id" + id);
 		webClient.post().uri(url).contentType(MediaType.MULTIPART_FORM_DATA).body(BodyInserters.fromMultipartData(body))
 				.retrieve().bodyToMono(String.class).subscribe(response -> {
-					System.out.println("Response Id" + id + ":" + response);
+					log.info("Response Id" + id + ":" + response);
 				});
-		System.out.println(" Time: " + LocalTime.now());
+		log.info(" Time: " + LocalTime.now());
 	}
 	
 }

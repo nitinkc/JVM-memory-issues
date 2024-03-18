@@ -31,7 +31,7 @@ public class FileNIOService {
 
                 // Alternatively, you can read all bytes from the file
                 byte[] fileBytes = Files.readAllBytes(filePath);
-                System.out.println(new String(fileBytes));
+                log.info(new String(fileBytes));
 
                 // Write content to a file
                 String contentToWrite = "Hello, NIO!";
@@ -41,7 +41,7 @@ public class FileNIOService {
                 e.printStackTrace();
             }
         } else {
-            System.out.println("File does not exist.");
+            log.info("File does not exist.");
         }
 	}
 }

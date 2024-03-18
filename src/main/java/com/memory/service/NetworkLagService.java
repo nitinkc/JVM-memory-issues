@@ -1,24 +1,21 @@
-package com.memory.service.network;
+package com.memory.service;
 
 
 import io.netty.handler.codec.http.HttpObject;
 import io.netty.handler.codec.http.HttpRequest;
 import io.netty.handler.codec.http.HttpResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.littleshoot.proxy.HttpFilters;
 import org.littleshoot.proxy.HttpFiltersAdapter;
 import org.littleshoot.proxy.HttpFiltersSourceAdapter;
 import org.littleshoot.proxy.HttpProxyServer;
 import org.littleshoot.proxy.impl.DefaultHttpProxyServer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class NetworkLagService {
-	
 	public HttpProxyServer httpProxyServer;
-	private static final Logger log = LoggerFactory.getLogger(NetworkLagService.class);
-
 
     public  void startNetworkLagProxy(Integer port, Integer delay) {
     	if( httpProxyServer != null ) {
@@ -38,7 +35,7 @@ public class NetworkLagService {
                                 try {
                                     Thread.sleep(delay);
                                 } catch (InterruptedException e) {
-                                    e.printStackTrace();
+                                    log.info(e.getMessage());
                                 }
                                 return null;
                             }
@@ -46,8 +43,6 @@ public class NetworkLagService {
                     }
                 })
                 .start();
-        
         log.info(  "Proxy server started on port " + port+  " which introduces a network lag of "+delay+"ms");
-        
     }
 }

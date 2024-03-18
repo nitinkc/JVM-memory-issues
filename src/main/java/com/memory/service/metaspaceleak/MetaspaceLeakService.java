@@ -1,30 +1,44 @@
 package com.memory.service.metaspaceleak;
 
+import javassist.CannotCompileException;
 import javassist.ClassPool;
+import javassist.CtClass;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 
 @Service
+@Slf4j
 public class MetaspaceLeakService {
 
-    public  void start() throws Exception {
+    /*
+     Metaspace is the memory space in the Java Virtual Machine (JVM) where class metadata, such as class definitions,
+     methods, and constants, are stored.
+
+     A Metaspace leak occurs when the application dynamically generates classes at runtime,
+     but fails to release them properly, leading to the exhaustion of Metaspace memory.
+     */
+    public  void start() {
         
     	long startTime = System.currentTimeMillis();
     	
         ClassPool classPool = ClassPool.getDefault();
         for (int i = 0; i < 750_000; i++) {
-            
-        	if (i % 50_000 == 0) {
-        		
-                System.out.println(i + " new classes created");
-            }
         	
         	// Keep creating classes dynamically!
-        	String classname = "com.buggyapp.metaspaceleak.MetaspaceObject" + i;
-        	System.out.println(classname + " new classes created");
-			classPool.makeClass(classname).toClass();
+        	String classname = "com.memory.service.metaspaceleak.ClassForMetaspace";
+        	log.info(i + " :: " +classname + " new classes created");
+            CtClass ctClass = null;
+            try {
+                ctClass = classPool.makeClass(classname);
+                Class<?> aClass = ctClass.toClass();
+            } catch (CannotCompileException e) {
+                log.error(e.getMessage());
+            }finally {
+               // ctClass.detach();//Simulating metaspace Leak
+            }
         }
         
-        System.out.println("Program Exited: " + (System.currentTimeMillis() - startTime) / 1000 + " seconds");
+        log.info("Program Exited: " + (System.currentTimeMillis() - startTime) / 1000 + " seconds");
     }
 }

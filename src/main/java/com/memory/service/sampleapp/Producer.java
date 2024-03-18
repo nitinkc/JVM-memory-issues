@@ -43,7 +43,7 @@ public class Producer extends Thread {
 			
 			SampleAppDemoService.s_map.put(counter, data);
 			if ((counter % THRESHOLD) == 0) {
-				System.out.println(getName() + " created " + THRESHOLD + " objects!");
+				log.info(getName() + " created " + THRESHOLD + " objects!");
 				//s_map.clear();
 			}
 		}		

@@ -26,6 +26,6 @@ public class SimpleExample {
 
 	public static void c() {
 
-		System.out.println("Hello");
+		log.info("Hello");
 	}
 }

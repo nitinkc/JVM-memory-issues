@@ -7,7 +7,7 @@ public class SimpleExample {
 		A a = new A();
 		B b = new B();
 		
-		System.out.println("Objects created!");
+		log.info("Objects created!");
 		Thread.sleep(1 * 60 * 1000);
 	}
 }

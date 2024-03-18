@@ -1,31 +1,22 @@
 package com.memory.service.memoryleak;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-/**
- * 
- * @author Ram Lakshmanan
- */
-
 @Service
+@Slf4j
 public class MemoryLeakDemoService {
 
-	static Object1 object1 = new Object1();
+	static Class1 class1 = new Class1();
 
 	public void start() {
 	
 		try {
-			object1.grow();
+			class1.grow();
 		} catch (Throwable e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		
-		System.out.println("Application is still running :-)");
-		try {
-			Thread.sleep(5 * 1000);
-		} catch (Exception e) {
-		}
-		
-		System.out.println("Application terminated only now :-)");		
+		log.info("Application terminated");
 	}
 }

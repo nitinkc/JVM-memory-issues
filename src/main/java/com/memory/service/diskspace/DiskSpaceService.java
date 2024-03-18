@@ -1,5 +1,6 @@
 package com.memory.service.diskspace;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -10,8 +11,8 @@ import java.nio.file.*;
 import java.util.Random;
 
 @Service
+@Slf4j
 public class DiskSpaceService {
-	private static final Logger log = LoggerFactory.getLogger(DiskSpaceService.class);
 	private final Integer ONE_MB = 1024 * 1024;
 
 	/**

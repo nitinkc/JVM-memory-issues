@@ -17,7 +17,7 @@ public class Consumer extends Thread {
 			
 			SampleAppDemoService.s_map.clear();
 			//if ((counter % THRESHOLD) == 0) {
-			System.out.println("Consumer thread consumed all Objects");
+			log.info("Consumer thread consumed all Objects");
 				//s_map.clear();
 			//}
 		}		

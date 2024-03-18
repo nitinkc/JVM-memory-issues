@@ -22,7 +22,7 @@ public class RandomExampleService {
 			users.add(user);
 		}
 		
-		System.out.println(value);
+		log.info(value);
 	}
 	
 	public static void main(String args[]) {

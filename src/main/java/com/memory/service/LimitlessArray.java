@@ -6,7 +6,7 @@ public class LimitlessArray {
 
 	public static void main(String[] args) {
 		  
-	    System.out.println("The beginning");
+	    log.info("The beginning");
 
 		// Get the runtime object
 		Runtime runtime = Runtime.getRuntime();
@@ -18,7 +18,7 @@ public class LimitlessArray {
 		long maxMemoryMegabytes = maxMemoryBytes / (1024 * 1024);
 
 		// Print the maximum memory size
-		System.out.println("Maximum heap size: " + maxMemoryMegabytes + " MB");
+		log.info("Maximum heap size: " + maxMemoryMegabytes + " MB");
 
 		//java.lang.OutOfMemoryError: Requested array size exceeds VM limit
 	    String[] strArray = new String[Integer.MAX_VALUE]; //crashes-right away
@@ -27,7 +27,7 @@ public class LimitlessArray {
 	    	strArray[i] = UUID.randomUUID().toString();
 	    }
 	    
-	    System.out.println("The end");
+	    log.info("The end");
 	 
 	}	
 }

@@ -6,7 +6,7 @@ import com.memory.service.diskspace.DiskSpaceService;
 import com.memory.service.fileconnectionleak.FileConnectionLeakService;
 import com.memory.service.memoryleak.MemoryLeakDemoService;
 import com.memory.service.metaspaceleak.MetaspaceLeakService;
-import com.memory.service.network.NetworkLagService;
+import com.memory.service.NetworkLagService;
 import com.memory.service.resttemplate.RestTemplateService;
 import com.memory.service.stackoverflow.StackOverflowDemoService;
 import com.memory.service.ThreadLeakDemoService;
