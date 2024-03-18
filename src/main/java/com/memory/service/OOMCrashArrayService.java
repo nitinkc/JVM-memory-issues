@@ -1,7 +1,6 @@
 package com.memory.service;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -10,14 +9,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import static java.lang.System.exit;
 
 @Service
 @Slf4j
-public class MemoryIssuesService {
+public class OOMCrashArrayService {
 
     private List<byte[]> memoryLeakingList = new ArrayList<>();
     private AtomicBoolean oomReached = new AtomicBoolean(false);
