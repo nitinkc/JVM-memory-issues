@@ -1,5 +1,8 @@
 package com.memory.service.references;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class SimpleExample {
 
 	public static void main (String argsp[]) throws Exception {

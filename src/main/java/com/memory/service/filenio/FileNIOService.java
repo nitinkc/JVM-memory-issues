@@ -1,5 +1,6 @@
 package com.memory.service.filenio;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -9,6 +10,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 @Service
+@Slf4j
 public class FileNIOService {
 	
 	public void loadWebClientCalls(Integer noOfCalls, String url) {

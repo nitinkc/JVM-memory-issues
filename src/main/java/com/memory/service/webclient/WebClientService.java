@@ -1,5 +1,6 @@
 package com.memory.service.webclient;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,7 @@ import java.time.Instant;
 import java.time.LocalTime;
 
 @Service
+@Slf4j
 public class WebClientService {
 
 	public void loadWebClientCalls(Integer noOfCalls, String url, String imagePath) {

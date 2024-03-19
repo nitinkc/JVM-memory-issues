@@ -1,5 +1,8 @@
 package com.memory.service.sampleapp;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class Producer extends Thread {
 	
 	private static int THRESHOLD=1000;

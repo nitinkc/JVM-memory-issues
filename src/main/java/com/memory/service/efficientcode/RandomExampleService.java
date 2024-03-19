@@ -1,11 +1,13 @@
 package com.memory.service.efficientcode;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Slf4j
 public class RandomExampleService {
 
 	public static void addUser(User user) {
@@ -22,7 +24,7 @@ public class RandomExampleService {
 			users.add(user);
 		}
 		
-		log.info(value);
+		log.info(String.valueOf(value));
 	}
 	
 	public static void main(String args[]) {

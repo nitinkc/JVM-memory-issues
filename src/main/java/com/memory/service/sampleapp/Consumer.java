@@ -1,5 +1,8 @@
 package com.memory.service.sampleapp;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class Consumer extends Thread {
 
 	@Override
