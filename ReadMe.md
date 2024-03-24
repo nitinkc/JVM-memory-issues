@@ -50,3 +50,9 @@ Avoid unnecessary use of static fields, thread local variables, and excessive ca
 Use tools like memory profilers to identify and diagnose memory leaks.
 Monitor application memory usage and performance regularly to detect any anomalies.
 
+```shell
+sh ~/Programming/buggyapp-latest/launch.sh
+```
+
+http://localhost:9010/
+
