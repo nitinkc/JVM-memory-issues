@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-@Controller
+@RestController
 @RequestMapping("api/v1/invoke")
 @AllArgsConstructor
 @Slf4j

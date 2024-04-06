@@ -56,3 +56,8 @@ sh ~/Programming/buggyapp-latest/launch.sh
 
 http://localhost:9010/
 
+## Documentation
+(http://localhost:8080/swagger-ui/index.html#/app-controller)[http://localhost:8080/swagger-ui/index.html#/app-controller]
+
+##### Actuator
+(http://localhost:8080/actuator)[http://localhost:8080/actuator]

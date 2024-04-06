@@ -14,4 +14,5 @@ public class MemoryIssuesApplication {
 		SpringApplication.run(MemoryIssuesApplication.class, args);
 	}
 
+
 }
