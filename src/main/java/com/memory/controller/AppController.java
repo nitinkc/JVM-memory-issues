@@ -99,7 +99,7 @@ public class AppController {
 	public ResponseEntity<Void>  leakSQLConnections() throws Exception {
 		log.info("DB Connections Leak With Postgreas DB running test schema with myDb as db name and querying student table");
 		dbConnectionLeakService.start();
-		return new ResponseEntity<Void>(HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "memory-leak", produces = { "application/json" }, method = RequestMethod.GET)
