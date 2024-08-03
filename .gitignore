@@ -41,4 +41,4 @@ heapdump/
 *.index
 .DS_Store
 
-java-memory-model/target/
+*.log
