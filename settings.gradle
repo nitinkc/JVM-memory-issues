@@ -1,1 +1,4 @@
 rootProject.name = 'JVM-memory-issues'
+include 'memory-model'
+include 'java-memory-model'
+
