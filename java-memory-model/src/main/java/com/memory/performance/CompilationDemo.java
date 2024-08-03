@@ -4,7 +4,6 @@ public class CompilationDemo {
     public CompilationDemo() {
     }
     // java -XX:+TieredCompilation -XX:+PrintCompilation CompilationDemo
-
     public static int compute(int x) {
         return x * x;
     }
