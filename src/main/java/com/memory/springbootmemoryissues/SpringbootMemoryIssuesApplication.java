@@ -9,5 +9,4 @@ public class SpringbootMemoryIssuesApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringbootMemoryIssuesApplication.class, args);
     }
-
 }
