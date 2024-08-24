@@ -42,3 +42,4 @@ heapdump/
 .DS_Store
 
 *.log
+buggyapp-samplefile.txt
