@@ -43,3 +43,4 @@ heapdump/
 
 jvm-*.log
 *.txt
+*.gz
