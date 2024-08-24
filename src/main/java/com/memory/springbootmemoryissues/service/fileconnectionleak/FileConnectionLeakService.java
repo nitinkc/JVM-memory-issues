@@ -10,7 +10,7 @@ import java.io.*;
 //Service to simulate file connection leak
 public class FileConnectionLeakService {
 
-	private static final String SAMPLE_FILE_NAME = "buggyapp-samplefile.txt";
+	private static final String SAMPLE_FILE_NAME = "log/samplefile.txt";
 
 	/**
 	 * Connects to a sample file and does not close it.

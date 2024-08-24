@@ -41,6 +41,6 @@ heapdump/
 *.index
 .DS_Store
 
-jvm-*.log
+log/
 *.txt
-*.gz
+log/*.gz
