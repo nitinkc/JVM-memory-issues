@@ -41,5 +41,5 @@ heapdump/
 *.index
 .DS_Store
 
-*.log
-buggyapp-samplefile.txt
+jvm-*.log
+*.txt

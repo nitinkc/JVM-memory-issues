@@ -39,7 +39,6 @@ public class FileConnectionLeakService {
 	 */
 	public void createSampleFile() {
 		try {
-
 			FileWriter fileWriter = new FileWriter(new File(SAMPLE_FILE_NAME));
 			BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 			for (int i = 1; i <= 10; i++) {
@@ -53,6 +52,8 @@ public class FileConnectionLeakService {
 			log.info("Sample file created ");
 		} catch (IOException e) { 
 			e.printStackTrace();
+		} finally{
+
 		}
 	}
 
